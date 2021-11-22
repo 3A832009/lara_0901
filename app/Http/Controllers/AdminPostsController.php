@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
-
 class AdminPostsController extends Controller
 {
     public function index()
     {
-        $post=Post::orderBy('created_at', 'DESC')->get();
-        $data=['posts'=>$post];
+        $posts=Post::orderBy('created_at', 'DESC')->get();
+        $data=['posts'=>$posts];
         return view('admin.posts.index', $data);
     }
 
@@ -23,7 +22,7 @@ class AdminPostsController extends Controller
 
         return view('admin.posts.edit', $data);
     }
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
         Post::create($request->all());
         return redirect()->route('admin.posts.index');
