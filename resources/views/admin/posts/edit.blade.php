@@ -45,9 +45,9 @@
 
             <div class="form-group">
                 <label for="is_feature">精選？</label>
-                <select id="is_feature" name="is_feature" class="form-control">
-                    <option value="0">否 {{ $post->is_feature?'SELECTED':''}}</option>
-                    <option value="1">是 {{ $post->is_feature?'SELECTED':''}}</option>
+                <select id=" is_feature " name="is_feature" class="form-control" >
+                    <option value="0" {{ (!$post->is_feature)? ' selected' : '' }}>否</option>
+                    <option value="1" {{ ($post->is_feature)? ' selected' : '' }}>是</option>
                 </select>
             </div>
 
