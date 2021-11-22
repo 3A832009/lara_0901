@@ -30,8 +30,8 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <form action="/admin/posts" method="POST" role="form">
-            @method('POST')
+        <form action="/admin/posts/{{$post->id}}" method="POST" role="form">
+            @method('PATCH')
             @csrf
             <div class="form-group">
                 <label for="title">標題：</label>
@@ -46,8 +46,8 @@
             <div class="form-group">
                 <label for="is_feature">精選？</label>
                 <select id="is_feature" name="is_feature" class="form-control">
-                    <option value="0">否</option>
-                    <option value="1">是</option>
+                    <option value="0">否 {{ $post->is_feature?'SELECTED':''}}</option>
+                    <option value="1">是 {{ $post->is_feature?'SELECTED':''}}</option>
                 </select>
             </div>
 
